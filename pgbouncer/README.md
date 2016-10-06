@@ -1,21 +1,20 @@
-docker image for pgbouncer
-based off of ubuntu:14.04
+### pgBouncer
+Works upon postgres 9.3 based on ubuntu:14.04
 
-To pull this image:
-`docker pull chernov/ubuntu-pgbouncer`
+#### Usage:
+```
+docker pull chernov/ubuntu-postgres9.3
+docker pull chernov/ubuntu-pgbouncer
+docker-compose up -d pgbouncer
+```
+#### Connection string:
+jdbc:postgresql://$HOST:6432/guest;user=guest;password=guest
+ 
+#### Environment variables 
 
-Example usage:
-`docker run -i -t -d -p 6432:6432 --link postgres:pg chernov/ubuntu-pgbouncer`
+`PG_ENV_POSTGRESQL_USER` (default: guest)
 
-This requires a link (named pg) to a postgres container or manually configured environment variables as follows:
-
-`PG_PORT_5432_TCP_ADDR` (default: <empty>)
-
-`PG_PORT_5432_TCP_PORT` (default: <empty>)
-
-`PG_ENV_POSTGRESQL_USER` (default: <empty>)
-
-`PG_ENV_POSTGRESQL_PASS` (default: <empty>)
+`PG_ENV_POSTGRESQL_PASS` (default: guest)
 
 `PG_ENV_POSTGRESQL_MAX_CLIENT_CONN` (default: 10000)
 
@@ -23,4 +22,3 @@ This requires a link (named pg) to a postgres container or manually configured e
 
 `PG_ENV_POSTGRESQL_SERVER_IDLE_TIMEOUT` (default: 240)
  
-Note: I would suggest using the `chernov/ubuntu-postgres9.3` image with this as it includes the above environment variables.
