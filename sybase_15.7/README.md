@@ -20,5 +20,10 @@ SYBASE_PASSWORD | password
 
 Create container
 ```bash
-docker run -d -t -p 5000:5000 -e "SYBASE_USER=guest" -h dksybase chernov/sybase:latest
+docker run -d -t -p 5000:5000 -e "SYBASE_USER=guest" -h dksybase --name sybase157 chernov/sybase:latest
+```
+
+Install pubs2 test database
+```
+docker exec -t sybase157 /bin/bash /sybase/isql -i"/opt/sybase/ASE-15_0/scripts/installpubs2"
 ```
