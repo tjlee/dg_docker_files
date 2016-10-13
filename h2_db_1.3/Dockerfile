@@ -17,7 +17,7 @@ RUN \
 	rm -Rf /var/log/*
 
 
-COPY sakila.h2.db ${DATA_DIR}/sakila.h2.db
+#COPY sakila.h2.db ${DATA_DIR}/sakila.h2.db
 
 VOLUME ["${DATA_DIR}"]
 
